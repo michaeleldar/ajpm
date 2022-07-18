@@ -5,9 +5,9 @@ all:
 
 install:
 	@mkdir -p $(DESTDIR)$(PREFIX)/bin
-	@cp -p main.sh $(DESTDIR)$(PREFIX)/bin/ajpm
-	@chmod 755 $(DESTDIR)$(PREFIX)/bin/jdpkg
+	@cp -p index.py $(DESTDIR)$(PREFIX)/bin/ajpm
+	@chmod 755 $(DESTDIR)$(PREFIX)/bin/ajpm
 
 
 uninstall:
-	@rm -rf $(DESTDIR)$(PREFIX)/bin/jdpkg
+	@rm -rf $(DESTDIR)$(PREFIX)/bin/ajpm
