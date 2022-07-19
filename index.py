@@ -32,10 +32,12 @@ ajpm -v or --version | prints version.
 sudo ajpm -uc or updatecatalouge | updates list of avalible packages.
         """
         )
-    elif argv[1] == "-uc" or argv == "updatecatalogue":
+    elif argv[1] == "-uc" or argv[1] == "updatecatalogue":
         system(f"mkdir /tmp/{dir_name}")
         system("")
         system(f"rm -rv /tmp/{dir_name}")
         system(
             f"curl https://raw.githubusercontent.com/michaeleldar/ajpm-db/main/packagelist.txt -o /etc/ajpm/pkglist"
         )
+    elif argv[1] == "-up" or argv[1] == "updatemanager":
+        
