@@ -33,11 +33,20 @@ sudo ajpm -uc or updatecatalouge | updates list of avalible packages.
         """
         )
     elif argv[1] == "-uc" or argv[1] == "updatecatalogue":
-        system(f"mkdir /tmp/{dir_name}")
-        system("")
-        system(f"rm -rv /tmp/{dir_name}")
         system(
-            f"curl https://raw.githubusercontent.com/michaeleldar/ajpm-db/main/packagelist.txt -o /etc/ajpm/pkglist"
+            "curl https://raw.githubusercontent.com/michaeleldar/ajpm-db/main/packagelist.txt -o /etc/ajpm/pkglist"
         )
-    elif argv[1] == "-up" or argv[1] == "updatemanager":
-        
+    elif argv[1] == "-um" or argv[1] == "updatemanager":
+        system(f"mkdir /tmp/{dir_name}")
+        system(
+            f"curl https://raw.githubusercontent.com/michaeleldar/ajpm/master/filelist -o /tmp/{dir_name}/filelist"
+        )
+        filelist = open(f"/tmp/{dir_name}/filelist", "r")
+        filesstring = filelist.read()
+        filelist.close()
+        fileslist = filesstring.split("\n")
+        for file in fileslist:
+            if file == "":
+                continue
+            system(f"curl {file} -o /tmp/{dir_name}")
+        system(f"rm -r /tmp/{dir_name}")
