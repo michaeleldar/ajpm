@@ -30,6 +30,7 @@ Usage:
 ajpm -h or --help | prints help information.
 ajpm -v or --version | prints version.
 sudo ajpm -uc or updatecatalouge | updates list of avalible packages.
+sudo ajpm -um or updatemanager | updates package manager.
         """
         )
     elif argv[1] == "-uc" or argv[1] == "updatecatalogue":
@@ -53,6 +54,8 @@ sudo ajpm -uc or updatecatalouge | updates list of avalible packages.
 
         filelist.close()
         filenames.close()
+        system(f"rm /tmp/{dir_name}/filelist")
+        system(f"rm /tmp/{dir_name}/filenames")
 
         fileslist = filesstring.split("\n")
         filenameslst = filenamesstr.split("\n")
@@ -63,4 +66,6 @@ sudo ajpm -uc or updatecatalouge | updates list of avalible packages.
             filename = filenameslst[filenameindex]
             system(f"curl {file} -o /tmp/{dir_name}/{filename}")
             filenameindex = filenameindex + 1
+        print(dir_name)
+        system(f"cd /tmp/{dir_name} && make install")
         system(f"rm -r /tmp/{dir_name}")
