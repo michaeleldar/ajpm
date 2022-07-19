@@ -41,12 +41,26 @@ sudo ajpm -uc or updatecatalouge | updates list of avalible packages.
         system(
             f"curl https://raw.githubusercontent.com/michaeleldar/ajpm/master/filelist -o /tmp/{dir_name}/filelist"
         )
+        system(
+            f"curl https://raw.githubusercontent.com/michaeleldar/ajpm/master/filenames -o /tmp/{dir_name}/filenames"
+        )
+
         filelist = open(f"/tmp/{dir_name}/filelist", "r")
+        filenames = open(f"/tmp/{dir_name}/filenames", "r")
+
         filesstring = filelist.read()
+        filenamesstr = filenames.read()
+
         filelist.close()
+        filenames.close()
+
         fileslist = filesstring.split("\n")
+        filenameslst = filenamesstr.split("\n")
+        filenameindex = 0
         for file in fileslist:
             if file == "":
                 continue
-            system(f"curl {file} -o /tmp/{dir_name}")
+            filename = filenameslst[filenameindex]
+            system(f"curl {file} -o /tmp/{dir_name}/{filename}")
+            filenameindex = filenameindex + 1
         system(f"rm -r /tmp/{dir_name}")
