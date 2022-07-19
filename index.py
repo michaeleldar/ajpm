@@ -1,9 +1,13 @@
 #!/usr/bin/python3
 from sys import argv
-from os import system
+from os import system, mkdir
 from random import randint
+from os.path import isdir
 
 dir_name = randint(1111111, 9999999)
+
+if not isdir("/etc/jdpkg"):
+    mkdir("/etc/jdpkg")
 
 if argv.__len__() == 1:
     print("Run ajpm -h or ajm --help for help.")
