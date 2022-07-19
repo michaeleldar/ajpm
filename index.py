@@ -31,7 +31,7 @@ ajpm -h or --help | prints help information.
 ajpm -v or --version | prints version.
 sudo ajpm -uc or updatecatalouge | updates list of avalible packages.
 sudo ajpm -um or updatemanager | updates package manager.
-yes another test
+one more test ig
         """
         )
     elif argv[1] == "-uc" or argv[1] == "updatecatalogue":
