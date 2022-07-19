@@ -6,8 +6,8 @@ from os.path import isdir
 
 dir_name = randint(1111111, 9999999)
 
-if not isdir("/etc/jdpkg"):
-    mkdir("/etc/jdpkg")
+if not isdir("/etc/ajpm"):
+    mkdir("/etc/ajpm")
 
 if argv.__len__() == 1:
     print("Run ajpm -h or ajm --help for help.")
