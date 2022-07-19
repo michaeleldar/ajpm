@@ -29,10 +29,10 @@ ajpm -h or --help | prints help information.
 ajpm -v or --version | prints version.
         """
         )
-    elif argv[1] == "-uc" or argv == "updatecat":
+    elif argv[1] == "-uc" or argv == "updatecatalogue":
         system(f"mkdir /tmp/{dir_name}")
         system("")
         system(f"rm -rv /tmp/{dir_name}")
         system(
-            f"curl https://raw.githubusercontent.com/michaeleldar/ajpm-db/main/packagelist.txt -o /etc/jdpkg"
+            f"curl https://raw.githubusercontent.com/michaeleldar/ajpm-db/main/packagelist.txt -o /etc/jdpkg/pkglist"
         )
