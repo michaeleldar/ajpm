@@ -8,6 +8,8 @@ dir_name = randint(1111111, 9999999)
 
 if not isdir("/etc/ajpm"):
     mkdir("/etc/ajpm")
+    installedpkg_file = open("/etc/ajpm/installedpkgs", "w")
+    installedpkg_file.write("ajpm")
 
 if argv.__len__() == 1:
     print("Run ajpm -h or ajm --help for help.")
