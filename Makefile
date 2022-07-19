@@ -11,4 +11,4 @@ install:
 
 uninstall:
 	@rm -rf $(DESTDIR)$(PREFIX)/bin/ajpm
-	@rm -rf /etc/jdpkg
+	@rm -rf /etc/ajpm
