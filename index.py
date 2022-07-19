@@ -21,12 +21,13 @@ elif argv.__len__() == 2:
         print(
             """
 Ajpm
---------------------------------------------
+--------------------------------------------------------------------
 Licence: GPLv3
---------------------------------------------
+--------------------------------------------------------------------
 Usage:
 ajpm -h or --help | prints help information.
 ajpm -v or --version | prints version.
+sudo ajpm -uc or updatecatalouge | updates list of avalible packages.
         """
         )
     elif argv[1] == "-uc" or argv == "updatecatalogue":
@@ -34,5 +35,5 @@ ajpm -v or --version | prints version.
         system("")
         system(f"rm -rv /tmp/{dir_name}")
         system(
-            f"curl https://raw.githubusercontent.com/michaeleldar/ajpm-db/main/packagelist.txt -o /etc/jdpkg/pkglist"
+            f"curl https://raw.githubusercontent.com/michaeleldar/ajpm-db/main/packagelist.txt -o /etc/ajpm/pkglist"
         )
