@@ -67,6 +67,5 @@ one more test ig
             filename = filenameslst[filenameindex]
             system(f"curl {file} -o /tmp/{dir_name}/{filename}")
             filenameindex = filenameindex + 1
-        system(f"cd /tmp/{dir_name} && make install && pwd")
-        print(dir_name)
-        # system(f"rm -r /tmp/{dir_name}")
+        system(f"cd /tmp/{dir_name} && sudo make install")
+        system(f"rm -r /tmp/{dir_name}")
